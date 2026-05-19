@@ -1843,6 +1843,19 @@ footer {
 .cta-strip {
   margin-top: -1px;
 }
+.page-header-estimator {
+  padding-bottom: 155px;
+  background:
+    linear-gradient(180deg,
+      var(--ivory) 0%,
+      var(--paper) 52%,
+      var(--paper-warm) 72%,
+      rgba(86,68,55,0.56) 90%,
+      #171311 100%);
+}
+.page-header-estimator + .estimator {
+  margin-top: -1px;
+}
 .hero .actions .btn-land {
   color: #fff;
 }
