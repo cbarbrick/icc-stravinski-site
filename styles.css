@@ -1844,6 +1844,9 @@ footer {
     linear-gradient(180deg, var(--paper) 0%, var(--ivory) 18%, var(--ivory) 76%, var(--paper-warm) 100%);
   border-bottom: 0;
 }
+.clients + .home-audience {
+  padding-top: 92px;
+}
 #submit-form {
   padding-bottom: 86px;
 }
