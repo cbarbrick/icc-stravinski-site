@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit Land . ICC Stravinski</title>
+<link rel="icon" href="assets/icc/icc-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="logo">ICC<span class="accent-dot"></span>Stravinski</a>
+    <ul>
+      <li><a href="index.html" class="navbtn">Home</a></li>
+      <li><a href="about.html" class="navbtn">About</a></li>
+      <li><a href="companies.html" class="navbtn">Companies</a></li>
+      <li><a href="projects.html" class="navbtn">Projects</a></li>
+      <li><a href="ask-stravinski.html" class="navbtn">Ask AI</a></li>
+      <li><a href="submit-land.html" class="navbtn active">Submit Land</a></li>
+      <li><a href="contact.html" class="navbtn cta">Let's Build</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">For Landowners &amp; Brokers</div>
+    <h1>Get an estimate. Submit a parcel.</h1>
+    <p class="lede">Have land in Georgia, Florida, Texas, or California you think we'd want to look at? Get an instant range estimate from our AI, then send the full details. Strong submissions route to a partner within 24 hours.</p>
+  </div>
+</header>
+
+<!-- INSTANT ESTIMATE (Phase 2 AI bot teaser) -->
+<section class="estimator">
+  <div class="container">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Instant AI Estimate</div>
+        <h2><span class="headline-line">Know what your land is worth</span><span class="accent">In 30 seconds.</span></h2>
+        <p class="lede">Tell us the state, acreage, and zoning. Our AI checks comparable industrial sales, infrastructure proximity, and current market demand. You get a range, fast, with no broker chain.</p>
+      </div>
+      <div style="text-align: right;">
+        <span class="phase-badge">Phase 2 . Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="estimate-tool">
+      <label>State
+        <select id="estState">
+          <option value="GA">Georgia</option>
+          <option value="FL">Florida</option>
+          <option value="TX">Texas</option>
+          <option value="CA">California</option>
+        </select>
+      </label>
+      <label>Parcel Size (acres)
+        <input type="number" id="estAcres" placeholder="e.g. 14" min="1">
+      </label>
+      <label>Zoning
+        <select id="estZoning">
+          <option value="industrial">Industrial</option>
+          <option value="rezonable">Rezonable to industrial</option>
+          <option value="commercial">Commercial</option>
+          <option value="agricultural">Agricultural</option>
+          <option value="residential">Residential</option>
+        </select>
+      </label>
+      <button onclick="runEstimate()">Get Estimate</button>
+    </div>
+
+    <div class="result" id="estResult">
+      <div class="row">
+        <div>
+          <div class="stat-label">Estimated Range</div>
+          <div class="stat-value" id="estRange">$0 . $0</div>
+        </div>
+        <div>
+          <div class="stat-label">Per Acre Mid</div>
+          <div class="stat-value" id="estPerAcre">$0</div>
+        </div>
+        <div>
+          <div class="stat-label">Confidence</div>
+          <div class="stat-value" id="estConfidence">.</div>
+        </div>
+      </div>
+      <p id="estNote">This is a mockup. The live AI estimator will pull live comps and apply ICC's internal underwriting model. For now, submit the full form below and a partner will give you a real number within 24 hours.</p>
+      <div class="next">
+        <a href="#submit-form">Continue to full submission →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tan" id="submit-form">
+  <div class="container">
+    <div class="submit-grid">
+      <div class="submit-side">
+        <div class="why-label">What Makes a Fit</div>
+        <h3>Industrial. Sunbelt. Real.</h3>
+        <p>If your parcel has a real industrial use case, we want to see it. Send the basics and we'll respond quickly with a clear next step.</p>
+        <ul>
+          <li>5+ acres, industrial-zoned or rezonable</li>
+          <li>Highway or rail access within reasonable proximity</li>
+          <li>GA, FL, TX, or CA. Open to anywhere with a real use case.</li>
+          <li>Clear title, willing seller, realistic ask</li>
+        </ul>
+      </div>
+      <form class="submit-form" onsubmit="event.preventDefault(); document.getElementById('thanks').style.display='block'; this.style.display='none';">
+        <label class="half">Your Name
+          <input type="text" placeholder="Full name" required>
+        </label>
+        <label class="half">Role
+          <input type="text" placeholder="Owner / Broker">
+        </label>
+        <label class="half">Email
+          <input type="email" placeholder="you@company.com" required>
+        </label>
+        <label class="half">Phone
+          <input type="tel" placeholder="(___) ___-____">
+        </label>
+        <label class="half">State
+          <select>
+            <option>Georgia</option>
+            <option>Florida</option>
+            <option>Texas</option>
+            <option>California</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="half">Parcel Size (acres)
+          <input type="text" placeholder="e.g. 12">
+        </label>
+        <label>Address or Parcel ID
+          <input type="text" placeholder="Street, county, or APN">
+        </label>
+        <label>Asking Price (optional)
+          <input type="text" placeholder="$">
+        </label>
+        <label>Anything we should know
+          <textarea placeholder="Zoning, current use, timeline, drone photos available, etc."></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Send to ICC Stravinski <span class="arrow">→</span></button>
+      </form>
+      <div id="thanks" style="display:none; grid-column: 2; background: var(--paper); border: 1px solid var(--brand); padding: 44px;">
+        <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand); font-weight: 700; margin-bottom: 14px;">Submission Received</div>
+        <h3 style="font-family: 'Anton', sans-serif; font-size: 36px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.02em;">Thanks. We'll Be in Touch.</h3>
+        <p style="color: var(--slate); line-height: 1.65;">A partner will review your parcel within 24 hours. If it looks like a fit, you'll hear from us directly. In the meantime, <a href="projects.html" style="color: var(--brand); font-weight: 700;">see our work</a> or <a href="contact.html" style="color: var(--brand); font-weight: 700;">reach the team</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">ICC<span class="accent-dot"></span>Stravinski</a>
+        <p>In business to build better businesses. A National Developer since 1978. ICC (the construction arm) and Stravinski Development Group (the development arm), operating under ICC Texas LLC.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Platform</h5>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="companies.html">Our Companies</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="ask-stravinski.html">Ask Stravinski</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Work With Us</h5>
+        <ul>
+          <li><a href="submit-land.html">Submit Land</a></li>
+          <li><a href="contact.html">Lease Space</a></li>
+          <li><a href="contact.html">Partner With Us</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@icc-stravinski.com?subject=Website%20Inquiry">hello@icc-stravinski.com</a></li>
+          <li><a href="contact.html">Schedule a call</a></li>
+          <li><a href="contact.html">Press &amp; media</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ICC Texas LLC . Industrial and Commercial Contractors . All rights reserved</span>
+      <span>Affirmative Action / Equal Opportunity Employer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mockup AI estimator. Real version would call our trained model with
+  // live comps, zoning data, infrastructure proximity, and ICC's internal book.
+  function runEstimate() {
+    const state = document.getElementById('estState').value;
+    const acres = parseFloat(document.getElementById('estAcres').value) || 0;
+    const zoning = document.getElementById('estZoning').value;
+    if (acres < 1) { alert('Enter a parcel size (acres).'); return; }
+
+    // Stub per-acre base rates by state. Replace with real comps later.
+    const base = { GA: 95000, FL: 110000, TX: 85000, CA: 175000 }[state];
+    const zMult = { industrial: 1.0, rezonable: 0.7, commercial: 0.85, agricultural: 0.35, residential: 0.55 }[zoning];
+    const sizeAdj = acres > 25 ? 0.92 : acres < 5 ? 1.05 : 1.0;
+    const mid = Math.round(base * zMult * sizeAdj * acres);
+    const low = Math.round(mid * 0.78);
+    const high = Math.round(mid * 1.22);
+    const perAcre = Math.round(mid / acres);
+    const conf = zoning === 'industrial' && acres >= 5 ? 'High' : zoning === 'rezonable' ? 'Medium' : 'Indicative';
+
+    const fmt = n => '$' + n.toLocaleString();
+    document.getElementById('estRange').textContent = fmt(low) + ' . ' + fmt(high);
+    document.getElementById('estPerAcre').textContent = fmt(perAcre) + ' / acre';
+    document.getElementById('estConfidence').textContent = conf;
+    document.getElementById('estResult').classList.add('show');
+  }
+
+</script>
+</body>
+</html>
