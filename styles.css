@@ -1783,6 +1783,10 @@ footer {
   color: rgba(255,247,234,0.45);
   border-top-color: rgba(255,247,234,0.16);
 }
+.site-credit {
+  color: rgba(255,247,234,0.68);
+  font-weight: 600;
+}
 footer {
   border-top-color: rgba(255,247,234,0.16);
 }
